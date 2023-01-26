@@ -1,0 +1,63 @@
+$color-text: white;
+$color-accent: rgba(201, 166, 10, 0.785);
+$color-background: #c19d53;
+
+$font-case1: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-case2: "Metropolis", "Gotham", "Helvetica Neue", Helvetica, Arial,
+  sans-serif;
+
+$breakpoint: (
+  sm: "screen and (min-width: 640px)",
+  md: "screen and (min-width: 768px)",
+  lg: "screen and (min-width: 1024px)",
+  xl: "screen and (min-width: 1280px)",
+);
+
+// mixin
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+    @content;
+  }
+}
+
+@mixin linkStyle($color: $color-text) {
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin textStyle($tag: null, $color: null) {
+  @if $tag == h1 {
+    font-size: 4rem;
+    font-family: $font-case1;
+  } @else if $tag == h2 {
+    font-size: 3.5rem;
+    font-family: $font-case1;
+  } @else if $tag == p {
+    font-size: 2rem;
+    font-family: $font-case1;
+  } @else if $tag == views-field {
+    font-size: 1rem;
+    font-family: $font-case1;
+  }
+  color: $color;
+}
+
+// base layout
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: $font-case1;
+  color: $color-text;
+  height: 100%;
+  margin: auto 0;
+}
+
+body {
+  font-size: 1.6em;
+  line-height: 1.25;
+  height: 100%;
+  margin: auto 0;
+}

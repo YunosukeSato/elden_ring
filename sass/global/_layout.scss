@@ -1,0 +1,61 @@
+@use "./base" as base;
+
+// header
+@mixin headerFlex {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+}
+
+// paragraph layout
+@mixin paragraphLayout {
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+// fixed background layout
+@mixin backgroundLayout {
+  min-height: 100%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  padding: 0 20px;
+}
+
+// change text color
+@mixin changeTextColor {
+  position: absolute;
+  content: attr(data-content);
+  color: base.$color-accent;
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
+  transition: clip-path 1s ease;
+}
+
+@mixin changeTextColorActive {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+}
+
+// paragraph title layout in key-feature section
+@mixin descriptionTitle {
+  @include base.textStyle(h2);
+  display: inline-block;
+  font-size: 1.5em;
+  background-color: base.$color-background;
+  padding: 10px 20px;
+  margin-left: -80px;
+  padding-left: 80px;
+}

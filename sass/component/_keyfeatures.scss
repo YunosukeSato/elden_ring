@@ -1,0 +1,75 @@
+@use "../global/base" as base;
+@use "../global/layout" as layout;
+
+.key-features {
+  @include layout.backgroundLayout;
+  background-image: url(../../img/ER_bg_1.jpg);
+  position: relative;
+  z-index: -2;
+  &::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  h2 {
+    @include base.textStyle(h2);
+    margin-top: 0;
+    margin-bottom: 80px;
+    margin-left: 120px;
+    padding-top: 40px;
+  }
+  .container-outer {
+    .features-group {
+      width: 75%;
+      margin: auto;
+      .features-container {
+        display: flex;
+        align-items: center;
+        margin: 0 0 120px;
+        .video-container {
+          width: 50%;
+          display: block;
+          padding: 0 20px;
+          video {
+            width: 100%;
+          }
+          &.even {
+            order: 2;
+            z-index: -1;
+          }
+        }
+        .feature-description {
+          width: 50%;
+          padding: 0 20px;
+          .paragraph-title {
+            @include layout.descriptionTitle;
+            &.even {
+              margin-right: -80px;
+              margin-left: 0;
+              padding-right: 80px;
+              padding-left: 0;
+              padding: 10px 20px;
+              // text-align: right;
+            }
+          }
+          .description-container {
+            .description-paragraph {
+              @include layout.paragraphLayout;
+              @include base.textStyle(p);
+              font-weight: 400;
+              font-size: 1.5rem;
+              &.even {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

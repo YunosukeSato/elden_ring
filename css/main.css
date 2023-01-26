@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  height: 100%;
+  margin: auto 0;
+}
+
+body {
+  font-size: 1.6em;
+  line-height: 1.25;
+  height: 100%;
+  margin: auto 0;
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 1;
+}
+nav ul {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  nav ul {
+    display: inherit;
+    float: left;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+nav ul a {
+  color: white;
+  text-decoration: none;
+}
+
+.hamburger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #c19d53;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 5px;
+}
+@media screen and (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+}
+.hamburger span {
+  display: inline-block;
+  transition: all 0.4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border: 2px;
+  background: #fff;
+  width: 45%;
+}
+.hamburger span:nth-of-type(1) {
+  top: 15px;
+}
+.hamburger span:nth-of-type(2) {
+  top: 23px;
+}
+.hamburger span:nth-of-type(3) {
+  top: 31px;
+}
+.hamburger.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+.hamburger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+.hero {
+  min-height: 100%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0 20px;
+  background-image: url(../../img/ER_hero.jpg);
+}
+@media screen and (min-width: 1024px) {
+  .hero {
+    background-position: center 3rem;
+  }
+}
+
+.about {
+  min-height: 100%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../../img/ER_river.jpg);
+}
+.about .views-row {
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+  margin-bottom: 3em;
+  font-size: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .about .views-row {
+    font-size: 1.5rem;
+  }
+}
+.about .views-row .views-field {
+  display: flex;
+  color: white;
+}
+.about .views-row .views-field .views-label::before {
+  position: absolute;
+  content: attr(data-content);
+  color: rgba(201, 166, 10, 0.785);
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
+  transition: clip-path 1s ease;
+}
+.about .views-row .views-field .views-label.active::before {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+}
+.about .views-row .views-field .field-content {
+  color: white;
+}
+@media screen and (min-width: 1024px) {
+  .about iframe {
+    width: 70%;
+    height: 60vh;
+    margin-bottom: 40px;
+  }
+}
+.about h1 {
+  font-size: 4rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 0;
+}
+.about .story-title {
+  font-size: 3.5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.about .story-title::before {
+  position: absolute;
+  content: attr(data-content);
+  color: rgba(201, 166, 10, 0.785);
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
+  transition: clip-path 1s ease;
+  font-size: 3.5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.about .story-title.active::before {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+}
+.about p {
+  font-size: 2rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+.key-features {
+  min-height: 100%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0 20px;
+  background-image: url(../../img/ER_bg_1.jpg);
+  position: relative;
+  z-index: -2;
+}
+.key-features::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.key-features h2 {
+  font-size: 3.5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 0;
+  margin-bottom: 80px;
+  margin-left: 120px;
+  padding-top: 40px;
+}
+.key-features .container-outer .features-group {
+  width: 75%;
+  margin: auto;
+}
+.key-features .container-outer .features-group .features-container {
+  display: flex;
+  align-items: center;
+  margin: 0 0 120px;
+}
+.key-features .container-outer .features-group .features-container .video-container {
+  width: 50%;
+  display: block;
+  padding: 0 20px;
+}
+.key-features .container-outer .features-group .features-container .video-container video {
+  width: 100%;
+}
+.key-features .container-outer .features-group .features-container .video-container.even {
+  order: 2;
+  z-index: -1;
+}
+.key-features .container-outer .features-group .features-container .feature-description {
+  width: 50%;
+  padding: 0 20px;
+}
+.key-features .container-outer .features-group .features-container .feature-description .paragraph-title {
+  font-size: 3.5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: inline-block;
+  font-size: 1.5em;
+  background-color: #c19d53;
+  padding: 10px 20px;
+  margin-left: -80px;
+  padding-left: 80px;
+}
+.key-features .container-outer .features-group .features-container .feature-description .paragraph-title.even {
+  margin-right: -80px;
+  margin-left: 0;
+  padding-right: 80px;
+  padding-left: 0;
+  padding: 10px 20px;
+}
+.key-features .container-outer .features-group .features-container .feature-description .description-container .description-paragraph {
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-size: 2rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.key-features .container-outer .features-group .features-container .feature-description .description-container .description-paragraph.even {
+  text-align: right;
+}
+
+/*# sourceMappingURL=main.css.map */

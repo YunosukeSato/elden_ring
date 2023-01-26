@@ -1,0 +1,10 @@
+@use "../global/base" as base;
+@use "../global/layout" as layout;
+
+.hero {
+  @include layout.backgroundLayout;
+  background-image: url(../../img/ER_hero.jpg);
+  @include base.mq(lg) {
+    background-position: center 3rem;
+  }
+}

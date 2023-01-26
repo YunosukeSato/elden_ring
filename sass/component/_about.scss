@@ -1,0 +1,61 @@
+@use "../global/base" as base;
+@use "../global/layout" as layout;
+
+.about {
+  @include layout.backgroundLayout;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../../img/ER_river.jpg);
+  .views-row {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+    margin-bottom: 3em;
+    font-size: 1rem;
+    @include base.mq(lg) {
+      font-size: 1.5rem;
+    }
+    .views-field {
+      display: flex;
+      color: base.$color-text;
+      .views-label {
+        &::before {
+          @include layout.changeTextColor;
+        }
+        &.active::before {
+          @include layout.changeTextColorActive;
+        }
+      }
+      .field-content {
+        color: base.$color-text;
+      }
+    }
+  }
+  iframe {
+    @include base.mq(lg) {
+      width: 70%;
+      height: 60vh;
+      margin-bottom: 40px;
+    }
+  }
+  h1 {
+    @include base.textStyle(h1);
+    margin-bottom: 0;
+  }
+  .story-title {
+    @include base.textStyle(h2);
+    &::before {
+      @include layout.changeTextColor;
+      @include base.textStyle(h2);
+    }
+    &.active::before {
+      @include layout.changeTextColorActive;
+    }
+  }
+  p {
+    @include base.textStyle(p);
+    text-align: center;
+  }
+}

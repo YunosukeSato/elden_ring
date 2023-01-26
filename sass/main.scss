@@ -1,0 +1,9 @@
+// global
+@forward "./global/base";
+@forward "./global/layout";
+
+// component
+@forward "./component/header";
+@forward "./component/hero";
+@forward "./component/about";
+@forward "./component/keyfeatures";
