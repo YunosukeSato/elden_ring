@@ -233,13 +233,13 @@ nav ul a {
   width: 50%;
   display: block;
   padding: 0 20px;
+  z-index: -1;
 }
 .key-features .container-outer .features-group .features-container .video-container video {
   width: 100%;
 }
 .key-features .container-outer .features-group .features-container .video-container.even {
   order: 2;
-  z-index: -1;
 }
 .key-features .container-outer .features-group .features-container .feature-description {
   width: 50%;
