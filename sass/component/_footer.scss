@@ -1,0 +1,32 @@
+@use "../global/base" as base;
+@use "../global/layout" as layout;
+
+footer {
+  @include layout.backgroundLayout;
+  background-image: url(../../img/Elden-Ring-Melina.avif);
+  position: relative;
+  z-index: -2;
+  &::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .melina {
+    text-align: center;
+    // width: 90vw;
+    margin: auto;
+    h1 {
+      @include base.textStyle(h1);
+      margin: 0;
+      padding-top: 50vh;
+    }
+    h2 {
+      @include base.textStyle(h3)
+    }
+  }
+}

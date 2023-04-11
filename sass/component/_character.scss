@@ -1,0 +1,105 @@
+@use "../global/base" as base;
+@use "../global/layout" as layout;
+
+.character {
+  @include layout.backgroundLayout;
+  background-image: url(../../img/fire.jpg);
+  position: relative;
+  z-index: -2;
+  &::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  h2 {
+    @include base.textStyle(h2);
+    margin-top: 0;
+    // margin-bottom: 80px;
+    margin-left: 120px;
+    padding-top: 40px;
+  }
+  .slider {
+    width: 94%;
+    margin: 0 auto;
+    padding-top: 0px;
+    // padding-left: 0;;
+    img {
+      height: auto;
+      width: 25vw;
+    }
+    .slick-slide {
+      transform: scale(0.8);
+      transition: all .5s;
+      opacity: 0.5;
+      .ch-description {
+        display: none;
+      }
+    }
+    .slick-current {
+      .ch-description {
+        display: block;
+        text-align: center;
+        h3 {
+          font-size: 5rem;
+          margin-bottom: 20px;
+          margin-top: 0;
+        }
+        p {
+          margin-top: 0;
+        }
+      }
+    }
+    .slick-center {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .slick-prev,
+    .slick-next {
+      position: absolute;
+      top: 42%;
+      cursor: pointer;
+      outline: none;
+      border-top: 2px solid #c19d53;
+      border-right: 2px solid #c19d53;
+      height: 15px;
+      width: 15px;
+    }
+    .slick-prev {
+      left: -1.5%;
+      top: 50%;
+      transform: rotate(-135deg);
+    }
+    .slick-next {
+      right: -1.5%;
+      top: 50%;
+      transform: rotate(45deg);
+    }
+    .slick-dots {
+      text-align: center;
+      margin: 0 0 0 40px;
+      padding-left: 0;
+      padding-right: 40px;
+      li {
+        display: inline-block;
+        margin: 0 5px;
+      }
+      button {
+        color: transparent;
+        outline: none;
+        width: 8px;
+        height: 16px;
+        display: block;
+        border-radius: 50%;
+        background: #ccc;
+      }
+      .slick-active button {
+        background: rgba(201, 166, 10, 0.785);
+      }
+    }
+  }
+}

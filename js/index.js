@@ -15,8 +15,37 @@ const addClassOnScroll = function () {
   });
 };
 
-const translateY = function () {
-  const windowTop = $(window).scrollTop();
+$('.slider').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  prevArrow: '<div class="slick-prev"></div>',
+  nextArrow: '<div class="slick-next"></div>',
+  dots: true,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+// const translateY = function () {
+//   const windowTop = $(window).scrollTop();
   // $(".video-container[id]").each(function (index, elem) {
   // const videoTop = $(elem).offset().top;
   // const videoId = $(elem).attr("id");
@@ -46,25 +75,25 @@ const translateY = function () {
   // }
   // }
   // });
-  $(".video-container[id]").each(function (index, elem) {
-    const windowHeight = $(window).height();
-    const element = document.querySelector(`#${elem.id}`);
-    const elemTop = element.getBoundingClientRect().top;
-    let elemY = -70;
-    // console.log(elemTop);
-    // 620
-    if (elemTop < 620) {
-    }
-  });
-  $("#key-feature-description").each(function (index, elem) {
-    const offsetTop = $(elem).offset().top;
-    if (windowTop > offsetTop - 700) {
-      $("#key-feature-description").css({
-        transform: " translateY(" + (342.2 - windowTop * 0.2) + "px)",
-      });
-    }
-  });
-};
+  // $(".video-container[id]").each(function (index, elem) {
+  //   const windowHeight = $(window).height();
+  //   const element = document.querySelector(`#${elem.id}`);
+  //   const elemTop = element.getBoundingClientRect().top;
+  //   let elemY = -70;
+  //   // console.log(elemTop);
+  //   // 620
+  //   if (elemTop < 620) {
+  //   }
+  // });
+  // $("#key-feature-description").each(function (index, elem) {
+  //   const offsetTop = $(elem).offset().top;
+  //   if (windowTop > offsetTop - 700) {
+  //     $("#key-feature-description").css({
+  //       transform: " translateY(" + (342.2 - windowTop * 0.2) + "px)",
+  //     });
+  //   }
+  // });
+// };
 
 // const calcY = function(elem, content) {
 //   let rectTop = elem.getBoundingClientRect().top;
@@ -79,22 +108,24 @@ $(function () {
   let videoY = -70;
 
   $(window).on("scroll", function () {
-    const windowHeight = $(window).height();
-    const windowTopNow = $(window).scrollTop();
+    // const windowHeight = $(window).height();
+    // const windowTopNow = $(window).scrollTop();
     // Change the color of some texts
     addClassOnScroll();
 
     // manipulate all elements!!
-    $(".video-container").each(function (index, elem) {
-      const element = document.querySelector(`#${elem.id}`);
-      const elemTop = element.getBoundingClientRect().top;
-      if (elemTop < 620 && windowTopNow > windowTop) {
-        videoY += 710 / windowHeight;
-        $(`#${elem.id}`).css({
-          transform: ` translateY(${videoY}px)`,
-        });
-      }
-      windowTop = windowTopNow;
-    });
+    // $(".video-container").each(function (index, elem) {
+    //   const element = document.querySelector(`#${elem.id}`);
+    //   const elemTop = element.getBoundingClientRect().top;
+    //   if (elemTop < 620 && windowTopNow > windowTop) {
+    //     videoY += 710 / windowHeight;
+    //     $(`#${elem.id}`).css({
+    //       transform: ` translateY(${videoY}px)`,
+    //     });
+    //   }
+    //   windowTop = windowTopNow;
+    // });
   });
 });
+
+
